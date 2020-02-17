@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { Route } from 'react-router';
-import "./index.scss";
+import { useHistory } from "../history";
 
 export interface RouteItem {
   name: string;
@@ -9,7 +8,6 @@ export interface RouteItem {
 }
 
 interface Props {
-  history: any;
   routers: RouteItem[];
   default?: number;
   current?: number;
@@ -19,6 +17,7 @@ interface Props {
 
 const MobileNavigation: React.FC<Props> = props => {
   const [current, setCurrent] = useState(0);
+  const { history } = useHistory();
 
   useEffect(() => {}, []);
 
@@ -28,7 +27,7 @@ const MobileNavigation: React.FC<Props> = props => {
 
   function switchNav(index: number) {
     setCurrent(index);
-    props.history.push(props.routers[index].path);
+    history.push(props.routers[index].path);
   }
 
   return (

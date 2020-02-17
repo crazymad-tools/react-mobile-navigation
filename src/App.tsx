@@ -1,7 +1,9 @@
 import React from "react";
 import MobileNavigation, { RouteItem } from "./package/MobileNavigation";
-import history from "./package/history";
+import MobileNavigationHeader from "./package/MobileNavigationHeader";
+import { useHistory } from "./package/history";
 import { Router, Route } from "react-router";
+import "./package/index.scss";
 
 const routers = [
   {
@@ -27,15 +29,26 @@ const routers = [
 ];
 
 function App() {
+  const { history } = useHistory();
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Router history={history}>
-        <MobileNavigation routers={routers} history={history}>
+        <MobileNavigation routers={routers}>
           {routers.map((router: RouteItem, index: number) => (
             <Route
               key={index}
               component={function() {
-                return <div>{router.name}</div>;
+                return (
+                  <>
+                    <MobileNavigationHeader
+                      title={router.name}
+                      back={true}
+                      component={<a href="#">link</a>}
+                    />
+                    <div>{router.name}</div>
+                  </>
+                );
               }}
               path={router.path}
             />
