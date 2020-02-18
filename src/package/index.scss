@@ -50,11 +50,16 @@
     font-weight: bold;
   }
   .mobile-navigation-title {
+    display: inline-block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     font-size: 20px;
     font-weight: bold;
+    max-width: calc(100% - 120px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

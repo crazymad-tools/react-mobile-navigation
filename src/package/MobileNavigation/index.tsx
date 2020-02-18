@@ -29,7 +29,7 @@ const MobileNavigation: React.FC<Props> = props => {
     setCurrent(index);
     history.push(props.routers[index].path);
   }
-
+  
   return (
     <div className="mobile-navigation-container">
       <div className="mobile-navigation-content">{props.children}</div>

@@ -1,7 +1,6 @@
 import React from "react";
-import MobileNavigation, { RouteItem } from "./package/MobileNavigation";
-import MobileNavigationHeader from "./package/MobileNavigationHeader";
-import { useHistory } from "./package/history";
+import { RouteItem } from "./package/MobileNavigation";
+import { useHistory, MobileNavigationHeader, MobileNavigation } from "./package";
 import { Router, Route } from "react-router";
 import "./package/index.scss";
 
@@ -38,14 +37,10 @@ function App() {
           {routers.map((router: RouteItem, index: number) => (
             <Route
               key={index}
-              component={function() {
+              component={function () {
                 return (
                   <>
-                    <MobileNavigationHeader
-                      title={router.name}
-                      back={true}
-                      component={<a href="#">link</a>}
-                    />
+                    <MobileNavigationHeader title={router.name} back={true} />
                     <div>{router.name}</div>
                   </>
                 );

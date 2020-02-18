@@ -1,20 +1,25 @@
 import React from "react";
+import { useHistory } from "../history";
+const leftIcon = require('../icons/left.svg') as string;
 
 interface Props {
   title: string;
   back?: boolean;
-    backCB?: Function;
+  backCB?: Function;
   component?: any;
 }
 
 const MobileNavigationHeader: React.FC<Props> = props => {
-  function goBack () {
+  const { history } = useHistory();
+
+  function goBack() {
+    history.goBack();
   }
 
   return (
     <div className="mobile-navigation-header">
       {props.back ? (
-        <span className="header-back-btn iconfont antd-icon-left" onClick={goBack} />
+        <img src={leftIcon} width="20" height="20" onClick={goBack} />
       ) : (
         <span></span>
       )}
