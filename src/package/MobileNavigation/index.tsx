@@ -7,7 +7,7 @@ export interface RouteItem {
   path: string;
 }
 
-interface Props {
+interface NavigationProps {
   routers: RouteItem[];
   default?: number;
   current?: number;
@@ -15,7 +15,7 @@ interface Props {
   activeStyle?: any;
 }
 
-const MobileNavigation: React.FC<Props> = props => {
+const MobileNavigation: React.FC<NavigationProps> = props => {
   const [current, setCurrent] = useState(0);
   const { history } = useHistory();
 

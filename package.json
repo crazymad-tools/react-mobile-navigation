@@ -1,7 +1,8 @@
 {
   "name": "react-mobile-navigation",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "public": true,
+  "module": "package/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -26,6 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "package-node": "TSC --jsx react --esModuleInterop --outDir ./package  --declaration ./src/package/index.ts",
     "package": "node ./src/scripts/package.js"
   },
   "eslintConfig": {

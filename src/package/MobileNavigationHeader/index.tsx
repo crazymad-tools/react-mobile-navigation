@@ -2,14 +2,14 @@ import React from "react";
 import { useHistory } from "../history";
 const leftIcon = require('../icons/left.svg') as string;
 
-interface Props {
+interface HeaderProps {
   title: string;
   back?: boolean;
   backCB?: Function;
   component?: any;
 }
 
-const MobileNavigationHeader: React.FC<Props> = props => {
+const MobileNavigationHeader: React.FC<HeaderProps> = props => {
   const { history } = useHistory();
 
   function goBack() {
@@ -21,8 +21,8 @@ const MobileNavigationHeader: React.FC<Props> = props => {
       {props.back ? (
         <img src={leftIcon} width="20" height="20" onClick={goBack} />
       ) : (
-        <span></span>
-      )}
+          <span></span>
+        )}
       <span className="mobile-navigation-title">{props.title}</span>
       {props.component ? props.component : <span></span>}
     </div>

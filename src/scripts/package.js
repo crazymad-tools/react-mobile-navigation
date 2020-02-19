@@ -2,12 +2,8 @@ const path = require('path');
 const nodeSass = require('node-sass');
 const fs = require('fs');
 
-// import typescript from 'typescript';
-
 const buildPath = path.resolve(__dirname, '../../package');
 const sourcePath = path.resolve(__dirname, '../package');
-
-// console.log(typescript);
 
 /**
  * 复制文件夹
@@ -37,7 +33,7 @@ function copyFold(sourcePath, destPath) {
  */
 function copyNecessary() {
   let workfolder = path.resolve(sourcePath, '../../');
-  ['package.json', 'README.md', 'tsconfig.json', 'typings.d.ts'].forEach((name) => {
+  ['package.json', 'README.md'].forEach((name) => {
     let origin = path.resolve(workfolder, name);
     let dest = path.resolve(buildPath, name);
     fs.writeFileSync(dest, fs.readFileSync(origin));
